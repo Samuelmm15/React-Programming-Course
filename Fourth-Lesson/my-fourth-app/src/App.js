@@ -2,6 +2,7 @@ import './App.css';
 import Employee from './components/Employee';
 
 function App() {
+  console.log("we are about to list the Employees");
   const ShowEmployee = true;
   return (
     <div className="App">
@@ -20,11 +21,11 @@ function App() {
       {
         ShowEmployee ? (
           <>
-            <Employee name="Samuel" />
-            <Employee /> 
-            <Employee />
-            <Employee />
-            <Employee />
+            <Employee name="Samuel" role="Programador"/>
+            <Employee name="MiAmor" role="Nutricionista"/> 
+            <Employee name="Isabella" />
+            <Employee name="Pepe" />
+            <Employee name="Juana" />
           </>
       ) : (
         <p>You can not see the employees</p>
