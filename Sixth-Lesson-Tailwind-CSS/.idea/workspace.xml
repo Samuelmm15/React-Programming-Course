@@ -13,25 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ec7b752-6c38-4d29-b899-ea56d4d97608" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sixth-Lesson-Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/Sixth-Lesson-Notes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-sixth-app/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677665878718</updated>
-      <workItem from="1677665879956" duration="494000" />
+      <workItem from="1677665879956" duration="1963000" />
     </task>
     <servers />
   </component>

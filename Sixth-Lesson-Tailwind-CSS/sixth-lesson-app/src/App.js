@@ -14,7 +14,7 @@ function App() {
   const ShowEmployee = true;
   // let roleValue = 'dev';
   return (
-    <div className="App">
+    <div className="App bg-red-300">
       {
         /* 
          * This list of employees is not shown because the ShowEmployee variable is set to false.

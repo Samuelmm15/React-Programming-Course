@@ -20,3 +20,32 @@ npm install -D tailwindcss postcss autoprefixer
 ```bash
 npx tailwindcss init -p
 ```
+
+## How to know the documentation of the Tailwind CSS
+
+```bash
+https://tailwindcss.com/docs
+```
+
+Note: At the file `tailwind.config.js` we are gonna to put the configuration of the Tailwind CSS, so, we need to put
+this code:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+Note: The documentation says that the Tailwind CSS starts when you put this command into the terminal:
+
+```bash
+npx tailwindcss -i ./src/App.css -o ./dist/output.css --watch
+```
+
+Note: The documentation says that the Tailwind CSS to start there are three lines to put in `src/input.css`, but in our
+case we are gonna to put the three lines in `src/App.css` because we are using React.
