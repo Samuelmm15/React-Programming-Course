@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import Employee from './components/Employee';
 // Esta librería importada a continuación sirve para poder actualizar los valores leídos en los
 // inputs. Es decir, si se escribe algo en el input, el valor de la variable roleValue se actualiza.

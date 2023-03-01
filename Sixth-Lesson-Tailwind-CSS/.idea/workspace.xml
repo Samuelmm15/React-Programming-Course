@@ -3,9 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
@@ -14,7 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ec7b752-6c38-4d29-b899-ea56d4d97608" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sixth-Lesson-Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/Sixth-Lesson-Notes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="7x5a21dj" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,7 +45,8 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/smartin/React-Course/Sixth-Lesson-Tailwind-CSS",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/smartin/Documents/React-Course/Sixth-Lesson-Tailwind-CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677665878718</updated>
       <workItem from="1677665879956" duration="1963000" />
+      <workItem from="1677694685548" duration="119000" />
     </task>
     <servers />
   </component>
