@@ -14,7 +14,7 @@ function App() {
   const ShowEmployee = true;
   // let roleValue = 'dev';
   return (
-    <div className="App bg-red-300">
+    <div className="App">
       {
         /* 
          * This list of employees is not shown because the ShowEmployee variable is set to false.
@@ -41,11 +41,13 @@ function App() {
                 // De esta manera anterior se asignan los valores para los estados que son actualizados en tiempo real.
               }
             } />
-            <Employee name="Samuel" role="Programador"/>
-            <Employee name="MiAmor" role="Nutricionista"/> 
-            <Employee name="Isabella" role={roleValue}/>
-            <Employee name="Pepe" role={roleValue}/>
-            <Employee name="Juana" />
+            <div className="flex flex-wrap justify-center">
+              <Employee name="Samuel" role="Programador" img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"/>
+              <Employee name="MiAmor" role="Nutricionista" img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"/> 
+              <Employee name="Isabella" role={roleValue} img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"/>
+              <Employee name="Pepe" role={roleValue} img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"/>
+              <Employee name="Juana" img="https://images.pexels.com/photos/3831645/pexels-photo-3831645.jpeg"/>
+            </div>
           </>
       ) : (
         <p>You can not see the employees</p>
