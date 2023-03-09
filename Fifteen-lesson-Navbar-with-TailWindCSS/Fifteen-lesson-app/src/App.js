@@ -67,7 +67,10 @@ function App() {
   const ShowEmployee = true;
   // let roleValue = 'dev';
   return (
-    <div className="App">
+    // Cabe destacar que al poner el color del fondo de la página no se tiene en cuenta que lo que se
+    // va a colorear solo es lo que tiene algún contenido de la página, por tanto, es necesario de la especificación
+    // de la etiqueta min-h-screen que lo que hace es que pone el color del fondo de la página completamente
+    <div className="App bg-gray-100 min-h-screen">
       <Header />
       {/*
        * This list of employees is not shown because the ShowEmployee variable is set to false.
@@ -81,19 +84,8 @@ function App() {
       }
       {ShowEmployee ? (
         <>
-          {/* La línea de abajo sirve para que se muestre por la consola del navegador el valor que se escribe dentro
-            del input. El onChange es un evento que se dispara cuando se escribe algo en el input. */}
-          <input
-            type="text"
-            onChange={(e) => {
-              console.log(e.target.value);
-              // Después asignamos el valor del imput a una variable para poder hacer uso de esta.
-              // roleValue = e.target.value;
-              setRoleValue(e.target.value);
-              // De esta manera anterior se asignan los valores para los estados que son actualizados en tiempo real.
-            }}
-          />
-          <div className="flex flex-wrap justify-center">
+        {/* La etiqueta my-2 sirve para poder dejar espacios entre los distintos elementos que se muestran en la página. */}
+          <div className="flex flex-wrap justify-center my-2">
             {employees.map((employee) => {
               const editEmployee = (
                 <EditEmployee
