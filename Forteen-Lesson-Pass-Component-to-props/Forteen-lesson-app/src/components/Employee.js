@@ -15,16 +15,7 @@ function Employee(props) {
           <p class="text-lg text-black font-semibold">{props.name}</p>
           <p class="text-slate-500 font-medium">{props.role}</p>
         </div>
-        {/* Para poder tener el nombre y el rol de cada uno de los empleados, es necesario como un
-                prop hacia el nuevo componente a partir del componente anterior. Hay que tener en cuenta
-                que el primer componente es el de las tarjetas de los empleados, mientras que el segundo
-                componente es el formulario del empleado. */}
-        <EditEmployee
-          id={props.id}
-          name={props.name}
-          role={props.role}
-          updateEmployee={props.updateEmployee}
-        />
+      {props.editEmployee}
       </div>
     </div>
   );
