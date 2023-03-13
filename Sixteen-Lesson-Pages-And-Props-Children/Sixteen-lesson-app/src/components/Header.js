@@ -13,7 +13,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+// Se debe de establecer posteriormente el props, ya que este permite el empleo de los componentes hijos.
+export default function Header(props) {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -144,6 +145,8 @@ export default function Header() {
               ))}
             </div>
           </Disclosure.Panel>
+          {/* Se debe de añadir el props.children para que se pueda emplear el componente hijo. */}
+          {props.children}
         </>
       )}
     </Disclosure>
