@@ -3,8 +3,8 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Employees", href: "/employees", current: true },
+  { name: "Customers", href: "/customers", current: false },
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
@@ -147,6 +147,7 @@ export default function Header(props) {
           </Disclosure.Panel>
           {/* Se debe de añadir el props.children para que se pueda emplear el componente hijo. */}
           {props.children}
+          <footer>example</footer>
         </>
       )}
     </Disclosure>

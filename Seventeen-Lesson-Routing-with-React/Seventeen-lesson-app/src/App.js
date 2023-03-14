@@ -1,6 +1,7 @@
 import "./index.css";
 import Headers from "./components/Header";
 import Employees from "./pages/Employees";
+import Customers from "./pages/Customers";
 // Esto de aquí son los componentes que se van a usar en la aplicación,
 // en este caso se va a usar el componente Header y el componente Employees,
 // el componente Header es el que va a contener las rutas de la aplicación,
@@ -18,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/employees" element={<Employees />} />
+          <Route path="/customers" element={<Customers />} />
         </Routes>
       </BrowserRouter>
     </Headers>
