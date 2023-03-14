@@ -68,7 +68,7 @@ function Employees() {
     // Cabe destacar que al poner el color del fondo de la página no se tiene en cuenta que lo que se
     // va a colorear solo es lo que tiene algún contenido de la página, por tanto, es necesario de la especificación
     // de la etiqueta min-h-screen que lo que hace es que pone el color del fondo de la página completamente
-    <div className="App bg-gray-100 min-h-screen">
+    <div className="">
       {/*
        * This list of employees is not shown because the ShowEmployee variable is set to false.
        * If the ShowEmployee variable is set to true, the list of employees will be shown.
@@ -82,7 +82,7 @@ function Employees() {
       {ShowEmployee ? (
         <>
         {/* La etiqueta my-2 sirve para poder dejar espacios entre los distintos elementos que se muestran en la página. */}
-          <div className="flex flex-wrap justify-center my-2">
+          <div className="flex flex-wrap justify-center">
             {employees.map((employee) => {
               const editEmployee = (
                 <EditEmployee
