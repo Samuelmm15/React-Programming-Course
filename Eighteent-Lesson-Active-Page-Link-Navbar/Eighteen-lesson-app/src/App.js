@@ -12,17 +12,14 @@ function App() {
   return (
     // Hay que tener en cuenta que no se puede cerrar el header con un <Header />, ya que este componente se
     // va a usar como un contendor de páginas para este caso
-    <Headers>
-      {/* De esta manera que se puede observar a continuación se pueden usar las rutas para poder poner las distintas
-      páginas que se van a usar en la aplicación, en este caso se va a usar la ruta principal que es la que va a
-      contener la lista de empleados. */}
-      <BrowserRouter>
+    <BrowserRouter>
+      <Headers>
         <Routes>
           <Route path="/employees" element={<Employees />} />
           <Route path="/customers" element={<Customers />} />
         </Routes>
-      </BrowserRouter>
-    </Headers>
+      </Headers>
+    </BrowserRouter>
   );
 }
 

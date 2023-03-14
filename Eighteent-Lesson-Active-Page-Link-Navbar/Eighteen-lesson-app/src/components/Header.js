@@ -47,9 +47,19 @@ export default function Header(props) {
                         //     : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
                         //   "rounded-md px-3 py-2 text-sm font-medium"
                         // )}
-                        className={({isActive}) => {
-                          console.log(item.href + " " + isActive);
-                        }} 
+                        className={({ isActive }) => {
+                          // Lo que estamos haciendo aquí es que cuando se active la ruta se le agregue a el
+                          // enlace una tonalidad y un efecto distinto, por tanto, lo que se hace en esta zona es que 
+                          // cuando sea activado el link, es decir, esté activo funcione esto
+                          return (
+                            // Nótese que si queremos que solo se ilumine el link de la página que se está usando, tenemos que 
+                            // marcar la opción de !isActive.
+                            "rounded-md px-3 py-2 text-sm font-medium no-underline" +
+                            (!isActive
+                              ? "no-underline text-gray-300 hover:bg-gray-700 hover:text-white"
+                              : "no-underline bg-gray-900 text-white")
+                          );
+                        }}
                       >
                         {item.name}
                       </NavLink>
