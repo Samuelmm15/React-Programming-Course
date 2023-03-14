@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Employees", href: "/employees", current: true },
-  { name: "Customers", href: "/customers", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Employees", href: "/employees" },
+  { name: "Customers", href: "/customers" },
+  { name: "Projects", href: "/other" },
+  { name: "Calendar", href: "/other2" },
 ];
 
 function classNames(...classes) {
@@ -36,19 +37,22 @@ export default function Header(props) {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <NavLink
                         key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "no-underline bg-gray-900 text-white"
-                            : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
+                        // Hay que tener en cuenta que se cambia href por to, ya que se emplea react-router-dom
+                        to={item.href}
+                        // className={classNames(
+                        //   item.current
+                        //     ? "no-underline bg-gray-900 text-white"
+                        //     : "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
+                        //   "rounded-md px-3 py-2 text-sm font-medium"
+                        // )}
+                        className={({isActive}) => {
+                          console.log(item.href + " " + isActive);
+                        }} 
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
