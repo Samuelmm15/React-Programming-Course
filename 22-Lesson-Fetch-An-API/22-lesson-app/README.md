@@ -1,9 +1,4 @@
-# Twenty lesson Notes
+# Twenty two lesson Notes
 
-At this twenty lesson of the course, we are gonna to learn how to use `useEffect` hook to fetch data from an API.
-
-## What is useEffect?
-
-The `useEffect` hook is a function that allows us to run some code when a component is rendered or when a component is updated.
-
-`useEffect` permits us to run some code when the page or a component is rendered or when a component is updated.
+At this lesson, we are going to add an Api to our application. We are going to use a free  Api called free dictionary api. To use this api
+into our application, we need to use `Fetch API` to make a request to the api and get the response. We are going to use `async` and `await` to make our code more readable.

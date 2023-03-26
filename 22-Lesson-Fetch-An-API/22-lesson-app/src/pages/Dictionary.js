@@ -26,10 +26,10 @@ export default function Dictionary() {
       <h2>Let's take the definition of the word {word}</h2>
       <input
         type="text"
-        value={word}
+        value={word2}
         onChange={(e) => setWord2(e.target.value)}
       />
-      <h2>Let's take the definition of the word {word}</h2>
+      <h2>Let's take the definition of the word {word2}</h2>
     </>
   );
 }
