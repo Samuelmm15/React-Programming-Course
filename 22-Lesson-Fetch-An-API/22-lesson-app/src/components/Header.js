@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure} from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
@@ -9,10 +9,6 @@ const navigation = [
   { name: "Dictionary", href: "/dictionary" },
   { name: "Definition", href: "/definition" },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 // Se debe de establecer posteriormente el props, ya que este permite el empleo de los componentes hijos.
 export default function Header(props) {
