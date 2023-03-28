@@ -1,4 +1,3 @@
-# 24 lesson Notes
+# 25 lesson Notes
 
-At this lesson, we are going to create a navBar that you write in it
-and it will redirect you to the page you want.
+At this lesson, we are going to create the 404 page for our page. We will create a new component called `NotFound` and we will use it in our `App.js` file.
