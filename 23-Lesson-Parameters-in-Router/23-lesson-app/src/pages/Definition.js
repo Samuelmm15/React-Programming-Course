@@ -1,13 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+// Esta es la manera en la que podemos hacer uso de los parametros creados en las rutas, es decir
+// haciendo uso de useParams
+import { useParams } from 'react-router-dom';
 
 export default function Definition() {
   const [word, setWord] = useState();
+  // console.log(useParams());
+  // ESTA ES LA MANERA DE USAR LOS PARAMETROS DE LA RUTA
+  let { search } = useParams();
   // Hay que tener en cuenta que siempre siempre siempre, la estructura general de un useEffect es de la sigueinte manera:
   // useEffect(() => {}, [dependencias]);
   // ESTO QUE SE PUEDE VER A CONTINUACIÓN NOS PERMITE ESTABLECER EL FETCH DE LA API DE DICCIONARIO, PARA ELLO SE EMPLEA EL USO DEL FETCH DE LA MANERA
   // QUE SE PUEDE VER A CONTINUACIÓN
   useEffect(() => {
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/helicopter")
+    // De esta forma podemos buscar en el api usada la palabra que el usuario quiera
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + search)
       .then((response) => response.json())
       .then((data) => {
         setWord(data);

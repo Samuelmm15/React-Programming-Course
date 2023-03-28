@@ -19,7 +19,10 @@ function App() {
         <Routes>
           <Route path="/employees" element={<Employees />} />
           <Route path="/dictionary" element={<Dictionary />} />
-          <Route path="/definition" element={<Definition />} />
+          {/* Hay que tener en cuenta que lo que se tiene abajo :search, hace
+          referencia al empleo de parametros o variables dentro de las rutas de
+          busqueda que, para ente caso se emplea como un elemento para comprobar en nuesta API de diccionario*/}
+          <Route path="/definition/:search" element={<Definition />} />
           <Route path="/customers" element={<Customers />} />
         </Routes>
       </Headers>
@@ -28,4 +31,3 @@ function App() {
 }
 
 export default App;
-  
