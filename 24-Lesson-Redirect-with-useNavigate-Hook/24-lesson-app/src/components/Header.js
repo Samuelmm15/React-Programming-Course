@@ -113,9 +113,9 @@ export default function Header(props) {
           </>
         )}
       </Disclosure>
-      {/* // Movemos el props.children para que se pueda emplear el componente hijo.
-    // Para que js no de errores y pueda funcionar de manera correcta, es necesario el empleo de <>> </> para que no de error. */}
-      <div className="bg-gray-100">
+      {/* Hay que tener en cuenta que para cambiar el color de la pagina se debe de realizar en este punto para
+      que funcione */}
+      <div className="bg-gray-200">
         <div className="max-w-7xl mx-auto min-h-screen px-2 py-2">
           {props.children}
         </div>

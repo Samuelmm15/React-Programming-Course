@@ -1,5 +1,4 @@
-# 23 lesson Notes
+# 24 lesson Notes
 
-At this lesson, we are going to use paramethers in our routes. So, we are going to edit the
-file `App.js` to add some paramethers in our routes. To add paramethers, we need to use the
-`:` symbol before the name of the paramether.
+At this lesson, we are going to create a navBar that you write in it
+and it will redirect you to the page you want.
