@@ -1,13 +1,15 @@
 import { useState, useEffect, Link } from "react";
 import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NotFound from "../components/NotFound";
 
 export default function Definition() {
   const [word, setWord] = useState();
   const [notFound, setNotFound] = useState(false);
+  const [error, setError] = useState(false);
+
   let { search } = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + search)
@@ -18,13 +20,34 @@ export default function Definition() {
         if (response.status === 404) {
           // En este punto cuando se detecte el error, es cuando podemos establecer el redireccionamiento
           setNotFound(true);
+        } else if (response.status === 401) {
+          navigate("/login");
+        } else if (response.status === 500) {
+          navigate("/login");
         }
+
+        // Esto solo se produce en el caso de que alguno de los estados de error anteriores no se
+        // genere, en cualquiera de los otros casos, si que se genera este error general se está implementando
+        if (!response.ok) {
+          // De esta manera, al poder establecer los errores como verdaderos, podemos implementar
+          // una nueva condición para poder mostrar un nuevo error por pantalla o en el propio sitio web
+          setError(true);
+
+          throw new Error("Something went wrong");
+        }
+
         // console.log(response.status);
         return response.json();
       })
       .then((data) => {
         setWord(data);
         console.log(data[0].meanings);
+      })
+      .catch((error) => {
+        // EN ESTE PUNTO NOS ENCONTRAMOS EL ERROR, PERO, COMO PODEMOS OBSERVAR, COMO DE MANERA SIMILAR A
+        // C++, HACEMOS USO DEL TIPO DE ERROR DE THROW PARA PODER CAPTURAR EL ERROR Y PODER MOSTRARLO
+        // EN LA CONSOLA DEL NAVEGADOR MEDIANTE EL CATCH
+        console.log(error.message);
       });
   }, []);
 
@@ -50,5 +73,9 @@ export default function Definition() {
         </>
       )
     );
+  }
+
+  if (error === true) {
+    return <h1>Something went wrong, try again?</h1>;
   }
 }
