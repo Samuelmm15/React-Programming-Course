@@ -1,7 +1,8 @@
-import { useState, useEffect, Link } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import NotFound from "../components/NotFound";
+import DefinitionSearch from "../components/DefinitionSearch";
 
 export default function Definition() {
   const [word, setWord] = useState();
@@ -66,6 +67,13 @@ export default function Definition() {
             {word && word[0].meanings[0].partOfSpeech}
           </p>
           <p>{word && word[0].meanings[0].definitions[0].definition}</p>
+
+          {/* Como se puede ver, esta etiqueta que se puede observar a continuación, denominada como br, sirve y
+          nos permite establecer un salto de línea entre el párrafo anterior y el siguiente párrrafo, permitiendo
+          establecer lo que nosotros queremos */}
+          <br></br>
+          <p>Search again.</p>
+          <DefinitionSearch />
         </>
       ) : (
         <>

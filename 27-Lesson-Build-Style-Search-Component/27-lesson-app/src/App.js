@@ -23,7 +23,7 @@ function App() {
           {/* Hay que tener en cuenta que lo que se tiene abajo :search, hace
           referencia al empleo de parametros o variables dentro de las rutas de
           busqueda que, para ente caso se emplea como un elemento para comprobar en nuesta API de diccionario*/}
-          <Route path="/definition/:search" element={<Definition />} />
+          <Route path="/dictionary/:search" element={<Definition />} />
           <Route path="/customers" element={<Customers />} />
           {/* Hay que tener en cuenta que el componente NotFound, es el que se va a usar para
           mostrar la pagina de error 404, y para que esto funcione, se debe de hacer la
