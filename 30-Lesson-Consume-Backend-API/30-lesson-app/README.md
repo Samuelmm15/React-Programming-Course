@@ -1,74 +1,70 @@
-# 29 lesson Notes
+# 30 lesson Notes
 
-At this lesson, we are going to learn how to create a REST API using Django REST Framework.
+At this lesson, we are going to continue to build the backed api using Django.
 
-At the first time, we need to create a .gitignore into de project folder of the backend, because we don't want to upload the virtual environment and the database to the repository. 
-We need to add the important files, so we are going to create a .gitignore file and add the template from internet.
+At first, we are going to create a file called `admin.py` in the `backend` folder.
 
-To obtain an example of gitignore templates we can go to [toptal-page](https://www.toptal.com/developers/gitignore) to generate an example of gitignore file.
-
-At this time, we need to intall the framework, so at the directory of the backed, we install
-the neccesary packages to create the REST API.
+This file is used to register the models to the admin site. But at first we need to create a superuser.
 
 ```bash
-pip install django-rest-framework
+python manage.py createsuperuser
 ```
 
-To intall all the neccesary packages in the requirements.txt file, we can use the next command:
+Then we can register the models to the admin site that we created at the file `admin.py`.
+
+## **NOTE**
+
+Take care with the migrations of the models. If you change the name of the model, you need to re-migrate the model with the new name, because, if you don't do that, the admin site will not recognize the model, and send an error.
+
+## Include the backend api in the frontend app
+
+At this point, we can put the backend api in the frontend app. We are going to add the backend API into the file called `Customers.js` in the folder `src/components`.
+
+Finally, to permits that the origin of the frontend app can consume the backend api, we need to install the package called `django-cors-headers`.
 
 ```bash
-pip freeze > requirements.txt
+pip install django-cors-headers
 ```
 
-To install all the packages into the new created virtual environment, we can use the next command:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Starting the creation of the backed with Django
-
-At the first time, we need to create a file called `model.py`. That is going to contain the models of the database.
-
-When we coded the models, we need to create the migrations to create the database. To do that, we need to run the next command:
-
-```bash
-python manage.py makemigrations <<application-name>>
-```
-
-This gerates an error because we need to create the application. To do that, we need to go to the file `settings.py` and add the application to the `INSTALLED_APPS` list.
+Then we need to add the package to the `INSTALLED_APPS` in the file `settings.py` in the folder `backend`.
 
 ```python
 INSTALLED_APPS = [
-    '<<application-name>>'
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'api'
+    'customers',
 ]
 ```
 
-To finish the creation of the database, we need to run the next command:
-
-```bash
-python manage.py migrate
-```
-
-**Second**, we need to add the path into the file `urls.py` to the application.
+And we need to add the middleware to the `MIDDLEWARE` in the file `settings.py` in the folder `backend`.
 
 ```python
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 ```
 
-**Third**, we need to create a file called `views.py` to create the views of the application.
-In this file, we need to use another new file that we are going to call `serializers.py` to create the serializers of the application.
+Then, we need to add the CORS_ORIGIN_ALLOW_ALL to the `settings.py` in the folder `backend`.
+
+```python
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    ...
+]
+```
+
+## **NOTE**
+
+To understand how to do all the process, you can see the local file of our project, called `Customers.js` in the folder `src/components`.

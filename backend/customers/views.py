@@ -1,9 +1,9 @@
 from customers.models import Customer
 from django.http import JsonResponse
-from customers.serealizer import CustomersSerializer
+from customers.serializers import CustomerSerializer
 
 def customers(request):
   #invoke serealizer and return to client
   data = Customer.objects.all()
-  serializer = CustomersSerializer(data, many=True)
+  serializer = CustomerSerializer(data, many=True)
   return JsonResponse({'customers': serializer.data})
