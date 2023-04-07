@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../shared";
 
 export default function Customers() {
   const [customers, setCustomers] = useState();
 
   useEffect(() => {
-    // TENER CUIDADO POR COMO SE ESCRIBE LA PRIMERA SENTENCIA DEL PRIMER .THEN
-    // Estaba generando error el no ponerlo exactamente igual que en el ejemplo que se puede observar a continuación
-    // .then((response) => response.json()) --> esta es la manera correcta de ponerlo
-    // .then((responser) ==> {responser.json()}) --> esta es la manera incorrecta de ponerlo
-    console.log("Fetching...");
-    fetch("http://localhost:8000/api/customers/")
+    const url = baseUrl + "api/customers/";
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

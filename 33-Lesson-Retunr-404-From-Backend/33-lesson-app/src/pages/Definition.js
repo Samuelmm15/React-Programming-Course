@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import NotFound from "../components/NotFound";
 import DefinitionSearch from "../components/DefinitionSearch";
@@ -53,7 +53,12 @@ export default function Definition() {
   }, []);
 
   if (notFound === true) {
-    return <NotFound />;
+    return (
+      <>
+        <NotFound />
+        <Link to="/dictionary">Go back to dictionary</Link>
+      </>
+    );
   } else {
     return (
       // Hay que tener en cuenta que para poder hacer la comprobacion de que si la palabra existe o no
@@ -81,9 +86,5 @@ export default function Definition() {
         </>
       )
     );
-  }
-
-  if (error === true) {
-    return <h1>Something went wrong, try again?</h1>;
   }
 }
