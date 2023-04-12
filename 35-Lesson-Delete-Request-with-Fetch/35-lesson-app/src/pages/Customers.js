@@ -18,15 +18,19 @@ export default function Customers() {
   return (
     <>
       <h1>Here are our Customers:</h1>
+      {/* La etiqueta ul en HTML sirve para crear listas no ordenadas */}
+      <ul>
       {customers
         ? customers.map((customer) => {
             return (
-              <p>
+              // La etiqueta li en HTML sirve para crear elementos de una lista
+              <li key={customer.id}>
                 <Link to={"/customers/" + customer.id}>{customer.name}</Link>
-              </p>
+              </li>
             );
           })
         : null}
+      </ul>
     </>
   );
 }
