@@ -4,7 +4,14 @@ import { baseUrl } from "../shared";
 import AddCustomer from "../components/addCustomer";
 
 export default function Customers() {
-  const [customers, setCustomers] = useState('');
+  const [customers, setCustomers] = useState("");
+  // Esta variable se encarga de mostrar el modal de añadir un nuevo cliente, para ello se crea una variable
+  // que permite mostrar el modal cuando nosotros queramos y cuando no queramos.
+  const [show, setShow] = useState(false);
+
+  function toggleShow() {
+    setShow(!show);
+  }
 
   useEffect(() => {
     const url = baseUrl + "api/customers/";
@@ -32,13 +39,19 @@ export default function Customers() {
         if (!response.ok) {
           throw new Error("Something went wrong");
         }
-        console.log('Alcanza este punto del código');
+        console.log("Alcanza este punto del código");
         return response.json();
       })
       .then((data) => {
         // assume that the add was succesfull
         // hide the modal
+        toggleShow(); // De esta manera haciendo uso de esta función, únicamente cuando se reciban los datos de la API
+        // correspondientes con que se ha realizado la operación de manera correcta, pues, en ese punto se cierra el pop-up de manera automática de esta manera
         // make sure that the list was updated
+        console.log(data);
+        // De esta manera lo que se realiza es que cuando se añada un nuevo cliente, se añada a la lista de clientes
+        // y por tanto se actualice la lista de clientes en tiempo real.
+        setCustomers([...customers, data.customers]);
       })
       .catch((error) => {
         console.log(error);
@@ -61,7 +74,11 @@ export default function Customers() {
             })
           : null}
       </ul>
-      <AddCustomer newCustomer={newCustomer} />
+      <AddCustomer
+        newCustomer={newCustomer}
+        show={show}
+        toggleShow={toggleShow}
+      />
     </>
   );
 }
