@@ -1,3 +1,3 @@
 # 32 lesson Notes
 
-At this lesson, we are going to create a delete button that permits us to delete a customer that we have created or that we have already in the database. So, we need to create a button that will delete the customer and then the application will refresh the list of customers.
+At this lesson, we are going to create a popup modal for our webstite. This popup will add new information or new customers to the customers page of our website. This permits us to add new customers to our database created at Django.
