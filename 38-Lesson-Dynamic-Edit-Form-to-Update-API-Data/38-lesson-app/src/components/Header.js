@@ -115,7 +115,7 @@ export default function Header(props) {
       </Disclosure>
       {/* Hay que tener en cuenta que para cambiar el color de la pagina se debe de realizar en este punto para
       que funcione */}
-      <div className="bg-gray-200">
+      <div className="bg-gray-300">
         <div className="max-w-7xl mx-auto min-h-screen px-2 py-2">
           {props.children}
         </div>

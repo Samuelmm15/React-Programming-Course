@@ -1,3 +1,3 @@
-# 32 lesson Notes
+# 38 lesson Notes
 
-At this lesson, we are going to update our popup modal created at the previous lesson.At this lesson, we are going to refine all the code and update the list of cutomers in real time.
+At this lesson, we are going to add a method that can update the data of a specific user. So, we are going to create a dynamic form that can be used to update the data of a specific user.

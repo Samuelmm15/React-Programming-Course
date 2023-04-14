@@ -4,9 +4,18 @@ import { baseUrl } from "../shared";
 
 export default function Customer() {
   const { id } = useParams();
-  const [customer, setCustomer] = useState();
+  const [customer, setCustomer] = useState("");
   const [notFound, setNotFound] = useState(false);
+  const [tempCustomer, setTempCustomer] = useState("");
+  const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
+
+  // En este punto deberemos de realizar una petición a la API para poder realizar una actualización de los datos de manera efectiva en el backend de la aplicación.
+  useEffect(() => {
+    console.log("Customer", customer);
+    console.log("TempCustomer", tempCustomer);
+    console.log(changed);
+  });
 
   useEffect(() => {
     const url = baseUrl + "api/customers/" + id;
@@ -22,8 +31,32 @@ export default function Customer() {
       })
       .then((data) => {
         setCustomer(data.customer);
+        setTempCustomer(data.customer);
       });
   }, []);
+
+  function updateCustomer() {
+    const url = baseUrl + "api/customers/" + id;
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(tempCustomer),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCustomer(data.customer);
+        setChanged(false);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <>
@@ -34,9 +67,52 @@ export default function Customer() {
       ) : null}
       {customer ? (
         <div>
-          <p>{customer.id}</p>
-          <p>{customer.name}</p>
-          <p>{customer.industry}</p>
+          {/* <input
+            className="m-2 block px-2"
+            type="text"
+            value={tempCustomer.id}
+          /> */}
+          <p className="m-2 block px-2">ID: {tempCustomer.id}</p>
+          <input
+            className="m-2 block px-2"
+            type="text"
+            value={tempCustomer.name}
+            // De esta manera es como se está realizando el cambio de estado de la variable tempCustomer para poder crear un formulario dinámico para este caso
+            onChange={(e) => {
+              setTempCustomer({ ...tempCustomer, name: e.target.value });
+              setChanged(true);
+            }}
+          />
+          <input
+            className="m-2 block px-2"
+            type="text"
+            value={tempCustomer.industry}
+            onChange={(e) => {
+              setTempCustomer({ ...tempCustomer, industry: e.target.value });
+              setChanged(true);
+            }}
+          />
+          {changed ? (
+            <>
+              <button
+                className="m-2 bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded"
+                onClick={(e) => {
+                  setChanged(false);
+                  setTempCustomer({ ...customer });
+                }}
+              >
+                Cancel
+              </button>
+              {/* Hay que tener cuidado al llamar a las funciones que si hacemos uso de la manera updateCustomer() da muchos errores
+              si dicha función no tiene parametros mejor no poner nada de parentesis ni nada */}
+              <button
+                className="m-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+                onClick={updateCustomer}
+              >
+                Save
+              </button>
+            </>
+          ) : null}
         </div>
       ) : null}
       <button
