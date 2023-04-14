@@ -1,3 +1,3 @@
-# 38 lesson Notes
+# 39 lesson Notes
 
-At this lesson, we are going to add a method that can update the data of a specific user. So, we are going to create a dynamic form that can be used to update the data of a specific user.
+At this lesson, we are going to perfectionate the smart form that we created in the previous lesson. So, at this lesson, we are goint to learn to compare state objects, like the topics name and industry that have the differents customers.

@@ -10,10 +10,18 @@ export default function Customer() {
   const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
 
-  // En este punto deberemos de realizar una petición a la API para poder realizar una actualización de los datos de manera efectiva en el backend de la aplicación.
+  // NOTA: Para la comparación de objetos como en este caso, es mejor hacer uso del useEffect ya que lo que realiza es la
+  // comparación de los objetos en este caso cuando se realiza algún cambio, en cambio, cuando se hace uso de funciones
+  // para la comparación de objetos, se tiene que especificar la zona del código en la que se produce dicha comparación,
+  // por tanto esto es mucho menos óptico en cualquier caso
   useEffect(() => {
-    console.log("Customer", customer);
-    console.log("TempCustomer", tempCustomer);
+    console.log(customer, tempCustomer);
+    let equal = true;
+    if (customer.name !== tempCustomer.name) equal = false;
+
+    if (customer.industry !== tempCustomer.industry) equal = false;
+
+    if (equal === true) setChanged(false);
     console.log(changed);
   });
 
