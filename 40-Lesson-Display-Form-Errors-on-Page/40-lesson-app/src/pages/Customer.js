@@ -8,6 +8,7 @@ export default function Customer() {
   const [notFound, setNotFound] = useState(false);
   const [tempCustomer, setTempCustomer] = useState("");
   const [changed, setChanged] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // NOTA: Para la comparación de objetos como en este caso, es mejor hacer uso del useEffect ya que lo que realiza es la
@@ -35,11 +36,22 @@ export default function Customer() {
           // render a 404 component in this page
           setNotFound(true);
         }
+
+        if (!response.ok) {
+          console.log('response', response);
+          throw new Error('Something went wrong, try again later');
+        }
+
         return response.json();
       })
       .then((data) => {
         setCustomer(data.customer);
         setTempCustomer(data.customer);
+        setError(undefined);
+      })
+      .catch((e) => {
+        console.log(e);
+        setError(e.message);
       });
   }, []);
 
@@ -52,6 +64,7 @@ export default function Customer() {
     })
       .then((response) => {
         if (!response.ok) {
+          console.log("response", response);
           throw new Error("Something went wrong");
         }
         return response.json();
@@ -60,9 +73,11 @@ export default function Customer() {
         setCustomer(data.customer);
         setChanged(false);
         console.log(data);
+        setError(undefined);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((e) => {
+        console.log(e);
+        setError(e.message);
       });
   }
 
@@ -121,38 +136,42 @@ export default function Customer() {
               </button>
             </>
           ) : null}
+
+          <button
+            onClick={(e) => {
+              console.log("deleting...");
+              const url = baseUrl + "api/customers/" + id;
+              // DE ESTA MANERA COMO PODEMOS OBSERVAR A CONTINUACIÓN PODEMOS ESPECIFICAR EL TIPO DE PETICIÓN QUE SE
+              // VA A REALIZAR A LA API, EN ESTE CASO ES UNA PETICIÓN DE TIPO DELETE
+
+              // NOTA: Hay que tener en cuenta que la segunda parte de la función fetch(), el apartado de headers no
+              // es necesario poner para el correcto funcionamiento de esta operación de eliminación de un objeto, pero,
+              // si que se trata de una buena práctica ponerlo para que el servidor sepa que tipo de contenido se está
+              // enviando en la petición.
+              fetch(url, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Something went wrong");
+                  }
+                  // Para el caso en el que las cosas vayan bien y de manera correcta.
+                  // return response.json();
+                  setError(undefined);
+                  navigate("/customers");
+                })
+                .catch((e) => {
+                  console.log(e);
+                  setError(e.message);
+                });
+            }}
+          >
+            Delete
+          </button>
         </div>
       ) : null}
-      <button
-        onClick={(e) => {
-          console.log("deleting...");
-          const url = baseUrl + "api/customers/" + id;
-          // DE ESTA MANERA COMO PODEMOS OBSERVAR A CONTINUACIÓN PODEMOS ESPECIFICAR EL TIPO DE PETICIÓN QUE SE
-          // VA A REALIZAR A LA API, EN ESTE CASO ES UNA PETICIÓN DE TIPO DELETE
-
-          // NOTA: Hay que tener en cuenta que la segunda parte de la función fetch(), el apartado de headers no
-          // es necesario poner para el correcto funcionamiento de esta operación de eliminación de un objeto, pero,
-          // si que se trata de una buena práctica ponerlo para que el servidor sepa que tipo de contenido se está
-          // enviando en la petición.
-          fetch(url, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Something went wrong");
-              }
-              // Para el caso en el que las cosas vayan bien y de manera correcta.
-              // return response.json();
-              navigate("/customers");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }}
-      >
-        Delete
-      </button>
+      {error ? <p>{error}</p> : null}
       <br />
       <Link to="/customers">Go back</Link>
     </>
