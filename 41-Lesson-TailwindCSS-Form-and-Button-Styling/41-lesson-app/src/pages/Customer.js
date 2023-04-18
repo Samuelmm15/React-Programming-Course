@@ -11,10 +11,6 @@ export default function Customer() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // NOTA: Para la comparación de objetos como en este caso, es mejor hacer uso del useEffect ya que lo que realiza es la
-  // comparación de los objetos en este caso cuando se realiza algún cambio, en cambio, cuando se hace uso de funciones
-  // para la comparación de objetos, se tiene que especificar la zona del código en la que se produce dicha comparación,
-  // por tanto esto es mucho menos óptico en cualquier caso
   useEffect(() => {
     console.log(customer, tempCustomer);
     let equal = true;
@@ -31,15 +27,12 @@ export default function Customer() {
     fetch(url)
       .then((response) => {
         if (response.status === 404) {
-          // redirect to a 404 page (new URL)
-          // navigate("/404");
-          // render a 404 component in this page
           setNotFound(true);
         }
 
         if (!response.ok) {
-          console.log('response', response);
-          throw new Error('Something went wrong, try again later');
+          console.log("response", response);
+          throw new Error("Something went wrong, try again later");
         }
 
         return response.json();
@@ -55,7 +48,9 @@ export default function Customer() {
       });
   }, []);
 
-  function updateCustomer() {
+  function updateCustomer(e) {
+    // preventDefault sirve para evitar que se recargue la página
+    e.preventDefault();
     const url = baseUrl + "api/customers/" + id;
     fetch(url, {
       method: "POST",
@@ -89,32 +84,54 @@ export default function Customer() {
         </div>
       ) : null}
       {customer ? (
-        <div>
-          {/* <input
-            className="m-2 block px-2"
-            type="text"
-            value={tempCustomer.id}
-          /> */}
-          <p className="m-2 block px-2">ID: {tempCustomer.id}</p>
-          <input
-            className="m-2 block px-2"
-            type="text"
-            value={tempCustomer.name}
-            // De esta manera es como se está realizando el cambio de estado de la variable tempCustomer para poder crear un formulario dinámico para este caso
-            onChange={(e) => {
-              setTempCustomer({ ...tempCustomer, name: e.target.value });
-              setChanged(true);
-            }}
-          />
-          <input
-            className="m-2 block px-2"
-            type="text"
-            value={tempCustomer.industry}
-            onChange={(e) => {
-              setTempCustomer({ ...tempCustomer, industry: e.target.value });
-              setChanged(true);
-            }}
-          />
+        <div className="p-3">
+          <form
+            className="w-full max-w-sm"
+            id="customer"
+            onSubmit={updateCustomer}
+          >
+            <p className="m-2 block px-2">ID: {tempCustomer.id}</p>
+            <div className="md:flex md:items-center mb-6">
+              {/* El establecimiento del for dentro del label y del id dentro de los inputs, nos permite
+          que cuando se haga uso de algun sistema de autofill para el usuario o cosas así, esto funcione de manera correcta
+          gracias al establecimiento de un identificador */}
+              <div className="md:w-1/4">
+                <label for="name">Name</label>
+              </div>
+              <div className="md:w-3/4">
+                <input
+                  id="name"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  type="text"
+                  value={tempCustomer.name}
+                  onChange={(e) => {
+                    setTempCustomer({ ...tempCustomer, name: e.target.value });
+                    setChanged(true);
+                  }}
+                />
+              </div>
+            </div>
+            <div className="md:flex md:items-center mb-6">
+              <div className="md:w-1/4">
+                <label for="idustry">Industry</label>
+              </div>
+              <div className="md:w-3/4">
+                <input
+                  id="industry"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  type="text"
+                  value={tempCustomer.industry}
+                  onChange={(e) => {
+                    setTempCustomer({
+                      ...tempCustomer,
+                      industry: e.target.value,
+                    });
+                    setChanged(true);
+                  }}
+                />
+              </div>
+            </div>
+          </form>
           {changed ? (
             <>
               <button
@@ -129,8 +146,8 @@ export default function Customer() {
               {/* Hay que tener cuidado al llamar a las funciones que si hacemos uso de la manera updateCustomer() da muchos errores
               si dicha función no tiene parametros mejor no poner nada de parentesis ni nada */}
               <button
+                form="customer"
                 className="m-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-                onClick={updateCustomer}
               >
                 Save
               </button>
@@ -138,6 +155,7 @@ export default function Customer() {
           ) : null}
 
           <button
+            className="bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded"
             onClick={(e) => {
               console.log("deleting...");
               const url = baseUrl + "api/customers/" + id;
