@@ -19,7 +19,7 @@ function AddEmployee(props) {
       {/* Añadimos el botón que teníamos que cada una de las tarjetas de los empleados a el desplegable para actualizar cada empleado, para que mantenga el formato original */}
       <button
         onClick={handleShow}
-        className="block mx-auto m-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+        className="block m-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
       >
         + Add Employee
       </button>

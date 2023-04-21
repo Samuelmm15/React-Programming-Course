@@ -77,14 +77,14 @@ export default function Customer() {
   }
 
   return (
-    <>
+    <div class="p-3">
       {notFound ? (
         <div>
           <h1>The customer with the id {id} was not found</h1>
         </div>
       ) : null}
       {customer ? (
-        <div className="p-3">
+        <div>
           <form
             className="w-full max-w-sm"
             id="customer"
@@ -155,7 +155,7 @@ export default function Customer() {
           ) : null}
 
           <button
-            className="bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-slate-800 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded"
             onClick={(e) => {
               console.log("deleting...");
               const url = baseUrl + "api/customers/" + id;
@@ -191,8 +191,13 @@ export default function Customer() {
       ) : null}
       {error ? <p>{error}</p> : null}
       <br />
-      <Link to="/customers">Go back</Link>
-    </>
+      <Link
+        className="no-underline bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+        to="/customers"
+      >
+        ←  Go back
+      </Link>
+    </div>
   );
 }
 

@@ -62,18 +62,20 @@ export default function Customers() {
     <>
       <h1>Here are our Customers:</h1>
       {/* La etiqueta ul en HTML sirve para crear listas no ordenadas */}
-      <ul>
-        {customers
-          ? customers.map((customer) => {
-              return (
-                // La etiqueta li en HTML sirve para crear elementos de una lista
-                <li key={customer.id}>
-                  <Link to={"/customers/" + customer.id}>{customer.name}</Link>
-                </li>
-              );
-            })
-          : null}
-      </ul>
+      {customers
+        ? customers.map((customer) => {
+            return (
+              // La etiqueta li en HTML sirve para crear elementos de una lista
+              <div className="m-2" key={customer.id}>
+                <Link to={"/customers/" + customer.id}>
+                  <button className="no-underline bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    {customer.name}
+                  </button>
+                </Link>
+              </div>
+            );
+          })
+        : null}
       <AddCustomer
         newCustomer={newCustomer}
         show={show}
