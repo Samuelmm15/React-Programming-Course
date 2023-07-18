@@ -1,13 +1,15 @@
 from customers.models import Customer
 from django.http import JsonResponse, Http404
 from customers.serializers import CustomerSerializer
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 # Esto sirve para poder administrar todas las distintas respuestas que se pueden dar a un cliente.
 from rest_framework.response import Response
 # Esto sirve para poder administrar los distintos estados que puede tener una respuesta.
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def customers(request):
   # En este punto realizamos la obtención de la lista total de clientes que se encuentran en la base de datos
   if request.method == 'GET':
@@ -27,6 +29,7 @@ def customers(request):
 # y sirve para poder agregar funcionalidades a una función, en este caso, se le agrega la funcionalidad de poder recibir
 # los métodos GET, POST y DELETE.
 @api_view(['GET', 'POST', 'DELETE'])
+@permission_classes([IsAuthenticated])
 def customer(request, id):
   try:
     data = Customer.objects.get(pk=id)
