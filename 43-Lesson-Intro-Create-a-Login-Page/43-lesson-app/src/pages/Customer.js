@@ -21,13 +21,15 @@ export default function Customer() {
     if (equal === true) setChanged(false);
     console.log(changed);
   });
-
+ 
   useEffect(() => {
     const url = baseUrl + "api/customers/" + id;
     fetch(url)
       .then((response) => {
         if (response.status === 404) {
           setNotFound(true);
+        } else if (response.status === 401) {
+          navigate("/login");
         }
 
         if (!response.ok) {
