@@ -21,10 +21,15 @@ export default function Customer() {
     if (equal === true) setChanged(false);
     console.log(changed);
   });
- 
+
   useEffect(() => {
     const url = baseUrl + "api/customers/" + id;
-    fetch(url)
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("access"),
+      },
+    })
       .then((response) => {
         if (response.status === 404) {
           setNotFound(true);
@@ -56,10 +61,16 @@ export default function Customer() {
     const url = baseUrl + "api/customers/" + id;
     fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("access"),
+      },
       body: JSON.stringify(tempCustomer),
     })
       .then((response) => {
+        if (response.status === 401) {
+          navigate("/login");
+        }
         if (!response.ok) {
           console.log("response", response);
           throw new Error("Something went wrong");
@@ -170,9 +181,15 @@ export default function Customer() {
               // enviando en la petición.
               fetch(url, {
                 method: "DELETE",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Bearer " + localStorage.getItem("access"),
+                },
               })
                 .then((response) => {
+                  if (response.status === 401) {
+                    navigate("/login");
+                  }
                   if (!response.ok) {
                     throw new Error("Something went wrong");
                   }
@@ -197,7 +214,7 @@ export default function Customer() {
         className="no-underline bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
         to="/customers"
       >
-        ←  Go back
+        ← Go back
       </Link>
     </div>
   );
