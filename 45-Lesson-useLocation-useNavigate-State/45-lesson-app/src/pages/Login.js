@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../shared";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(location.state);
+  });
+
   function login(e) {
     e.preventDefault();
-    // Hacemos uso de la API de Django para poder realizar la autenticación de los usuarios
-    // Hay que tener en cuenta que en dicha ruta que hemos configurado abajo, no se hace uso de api/login, ya que en el
-    // backend lo hemos configurado como api/token
     const url = baseUrl + "api/token/";
     fetch(url, {
       method: "POST",
@@ -22,7 +27,15 @@ export default function Login() {
       .then((data) => {
         localStorage.setItem('access', data.access);
         localStorage.setItem('refresh', data.refresh);
-        console.log(localStorage);
+        /**
+         * Debido a que puede ocurrir que cuando estamos en la página de login y queremos que tras realizar el login
+         * vuelva a la página que estabamos, si no estabamos de manera previa en una página que pertnezca a la aplicación
+         * nos dará un error si no realizamos la implementación de un operador ternario que nos permita comprobar y tener
+         * en cuenta este error, permitiendonos determinar por tanto solucionar aquellos posibles errores que se puedan generar.
+         * 
+         * Cabe destacar que hacemos uso de las ?, para poder comprobar y determinar que dicha variable puede llegar a ser nula.
+         */
+        navigate(location?.state?.previousUrl ? location.state.previousUrl: "/customers");
       });
   }
 
