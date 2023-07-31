@@ -1,7 +1,8 @@
-import { Fragment } from "react";
-import { Disclosure} from "@headlessui/react";
+import { useContext } from "react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
+import { LoginContext } from "../App";
 
 const navigation = [
   { name: "Employees", href: "/employees" },
@@ -10,8 +11,10 @@ const navigation = [
   { name: "Definition", href: "/definition" },
 ];
 
-// Se debe de establecer posteriormente el props, ya que este permite el empleo de los componentes hijos.
 export default function Header(props) {
+  // At this point we are going to use the context at the different headers created at the app
+  const [loggedIn, setLoggedIn] = useContext(LoginContext);
+
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -61,6 +64,17 @@ export default function Header(props) {
                           {item.name}
                         </NavLink>
                       ))}
+
+                      <NavLink
+                        // CABE DESTACAR: se puede hacer uso de operaciones y ciertas acciones dentro del to, como podemos observar a continuación.
+                        to={loggedIn ? "/logout" : "/login"}
+                        className="no-underline rounded-md px-3 py-2 text-sm font-medium no-underline rounded-md px-3 py-2 text-sm font-medium"
+                      >
+                        {/* NOTA: Nótese que para que el link sea dinámico también se hace uso de un operador ternario, es por ello que,
+                          cuando detectamos que el usuario se ha dado de alta, aparece el botón de Login, en cambio cuando el usuario no se 
+                          ha dado de alta, aparece el botón de Logout */}
+                        {loggedIn ? "Logout" : "Login"}
+                      </NavLink>
                     </div>
                   </div>
                 </div>
@@ -106,6 +120,16 @@ export default function Header(props) {
                     {item.name}
                   </NavLink>
                 ))}
+                <NavLink
+                  // CABE DESTACAR: se puede hacer uso de operaciones y ciertas acciones dentro del to, como podemos observar a continuación.
+                  to={loggedIn ? "/logout" : "/login"}
+                  className="no-underline block rounded-md px-3 py-2 text-base font-medium no-underline text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  {/* NOTA: Nótese que para que el link sea dinámico también se hace uso de un operador ternario, es por ello que,
+                          cuando detectamos que el usuario se ha dado de alta, aparece el botón de Login, en cambio cuando el usuario no se 
+                          ha dado de alta, aparece el botón de Logout */}
+                  {loggedIn ? "Logout" : "Login"}
+                </NavLink>
               </div>
             </Disclosure.Panel>
             {/* Se debe de añadir el props.children para que se pueda emplear el componente hijo. */}

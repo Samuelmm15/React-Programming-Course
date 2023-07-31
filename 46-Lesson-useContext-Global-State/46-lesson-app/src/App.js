@@ -1,4 +1,6 @@
 import "./index.css";
+// First we need to import the library that we are going to use to create the context
+import { createContext, useState } from 'react';
 import Headers from "./components/Header";
 import Employees from "./pages/Employees";
 import Customers from "./pages/Customers";
@@ -9,9 +11,15 @@ import Definition from "./pages/Definition";
 import Customer from "./pages/Customer";
 import Login from "./pages/Login";
 
+// Second we need to create the context and put it a name
+export const LoginContext = createContext();
+
 function App() {
+  // To use the value option of the context, its neccesary to create a state to use it
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
-   
+    // Its important to establish the option value.
+    <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
     <BrowserRouter>
       <Headers>
         <Routes>
@@ -29,6 +37,7 @@ function App() {
         </Routes>
       </Headers>
     </BrowserRouter>
+    </LoginContext.Provider>
   );
 }
 

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { baseUrl } from "../shared";
 import AddCustomer from "../components/addCustomer";
+import { LoginContext } from '../App';
 
 export default function Customers() {
+  const [loggedIn, setLoggedIn] = useContext(LoginContext);
   const [customers, setCustomers] = useState("");
   // Esta variable se encarga de mostrar el modal de añadir un nuevo cliente, para ello se crea una variable
   // que permite mostrar el modal cuando nosotros queramos y cuando no queramos.
@@ -26,6 +28,7 @@ export default function Customers() {
     })
       .then((response) => {
         if (response.status === 401) {
+          setLoggedIn(false);
           navigate("/login", {
             state: {
               previousUrl: location.pathname,

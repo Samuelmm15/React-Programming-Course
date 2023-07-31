@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { baseUrl } from "../shared";
 import { useNavigate, useLocation } from "react-router-dom";
+import { LoginContext } from '../App'; 
 
 export default function Login() {
+  const [loggedIn, setLoggenIn] = useContext(LoginContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +29,7 @@ export default function Login() {
       .then((data) => {
         localStorage.setItem('access', data.access);
         localStorage.setItem('refresh', data.refresh);
+        setLoggenIn(true);
         /**
          * Debido a que puede ocurrir que cuando estamos en la página de login y queremos que tras realizar el login
          * vuelva a la página que estabamos, si no estabamos de manera previa en una página que pertnezca a la aplicación
