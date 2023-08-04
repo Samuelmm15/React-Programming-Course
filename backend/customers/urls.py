@@ -27,5 +27,6 @@ urlpatterns = [
     # <int:id> hace referencia a un parámetro que se le pasa a la función para que pueda ser usada,
     # para este caso, la función usada se encuentra en views.py, y se denomina como customer en sigular
     # para poder referirse a que se trata de un cliente en particular.
-    path('api/customers/<int:id>', views.customer, name='customer')
+    path('api/customers/<int:id>', views.customer, name='customer'),
+    path('api/register', views.register, name='register')
 ]
