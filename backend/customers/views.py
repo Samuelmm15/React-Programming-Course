@@ -1,12 +1,13 @@
 from customers.models import Customer
 from django.http import JsonResponse, Http404
-from customers.serializers import CustomerSerializer
+from customers.serializers import CustomerSerializer, UserSerializer
 from rest_framework.decorators import api_view, permission_classes
 # Esto sirve para poder administrar todas las distintas respuestas que se pueden dar a un cliente.
 from rest_framework.response import Response
 # Esto sirve para poder administrar los distintos estados que puede tener una respuesta.
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
@@ -55,5 +56,15 @@ def customer(request, id):
         return Response({'customer': serializer.data}, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# def register():
-#   pass
+@api_view(['POST'])
+def register(request):
+  serializer = UserSerializer(data=request.data)
+  if serializer.is_valid():
+    user = serializer.save()
+    refresh = RefreshToken.for_user(user)
+    tokens = {
+      'refresh': str(refresh),
+      'access': str(refresh.access_token)
+    }
+    return Response(tokens, status=status.HTTP_201_CREATED)
+  return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
