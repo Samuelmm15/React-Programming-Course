@@ -1,9 +1,6 @@
 # 49 lesson Notes
 
-At this lesson, we are going to add a user register form and API to our project.
+At this lesson, we are going to create our Hook, a Hook in React is similar to useNavigate, useFetch, etc.
+So, at this lesson, we are going to create our Hook to add a functionality at our app.
 
-At first, we are going to add some aspects to the backend of our application, and then we are going to add a user register form to our frontend.
-
-## Backend
-
-First we create a new url called `api/register` and then we create a new view called `RegisterView` and then we add this view to the `urls.py` file.
+To understand to create our custom Hook, we are going to create it at the file called `Definition.js`.

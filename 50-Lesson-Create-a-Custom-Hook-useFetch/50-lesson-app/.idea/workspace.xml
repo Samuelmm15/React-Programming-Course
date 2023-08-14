@@ -11,8 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ebfeba57-8273-43fa-9293-adcdc96f7628" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Definition.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Definition.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +48,14 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "49-Lesson-User-Reagister-Form-And-API",
-    "last_opened_file_path": "/Users/smartin/Documents/React-Course/49-Lesson-User-Reagister-Form-And-API/49-lesson-app/src/pages",
+    "git-widget-placeholder": "50-Lesson-Create-a-Custom-Hook-useFetch",
+    "last_opened_file_path": "/Users/smartin/Documents/React-Course/50-Lesson-Create-a-Custom-Hook-useFetch/50-lesson-app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,6 +82,11 @@
       <updated>1690455103212</updated>
       <workItem from="1690455104407" duration="40000" />
       <workItem from="1692002387259" duration="1780000" />
+      <workItem from="1692006004100" duration="1059000" />
+      <workItem from="1692007074448" duration="332000" />
+      <workItem from="1692007415853" duration="63000" />
+      <workItem from="1692007486458" duration="187000" />
+      <workItem from="1692007684487" duration="114000" />
     </task>
     <servers />
   </component>
