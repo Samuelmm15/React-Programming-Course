@@ -1,5 +1,6 @@
 # 49 lesson Notes
 
-At this lesson, we are going to create our Hook, a Hook that create data, read data and do things like this.
+At this lesson, we are going to create our Hook, a Hook that post data, in that case to add new customers
+into our customer page.
 
-En este episodio se ha realizado la edición del fichero `useFetch.js` y `Customers.js`.
+At this lesson we are going to edit the files called `Customers.js`, `UseFetch.js`, `Definition.js`.

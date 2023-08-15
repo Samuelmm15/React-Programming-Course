@@ -7,9 +7,6 @@ import useFetch from '../hooks/UseFetch';
 
 export default function Customers() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
-    // const [customers, setCustomers] = useState("");
-    // Esta variable se encarga de mostrar el modal de añadir un nuevo cliente, para ello se crea una variable
-    // que permite mostrar el modal cuando nosotros queramos y cuando no queramos.
     const [show, setShow] = useState(false);
 
     function toggleShow() {
@@ -20,11 +17,6 @@ export default function Customers() {
     const location = useLocation();
 
     const url = baseUrl + "api/customers/";
-    // De la manera que podemos observar a continuación, podemos realizar el uso directamente
-    // de una nueva variable llamada customers, en lugar de hacer uso de data.customers cada vez que queramos
-    // invocar dicha variable, por tanto de la manera data: {customers} se declara data.customers = customers
-    // NÓTESE que la declaración anterior se iguala a un objeto vacío para evitar que en el caso de que esto se
-    // encuentre vacío se genere algún problema con ello.
     const {data: {customers} = {}, errorStatus} = useFetch(url, {
         method: 'GET', headers: {
             "Content-Type": "application/json",
