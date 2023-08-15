@@ -1,6 +1,5 @@
 # 49 lesson Notes
 
-At this lesson, we are going to create our Hook, a Hook in React is similar to useNavigate, useFetch, etc.
-So, at this lesson, we are going to create our Hook to add a functionality at our app.
+At this lesson, we are going to create our Hook, a Hook that create data, read data and do things like this.
 
-To understand to create our custom Hook, we are going to create it at the file called `Definition.js`.
+En este episodio se ha realizado la edición del fichero `useFetch.js` y `Customers.js`.
