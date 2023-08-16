@@ -13,12 +13,13 @@ export default function Definition() {
     let {search} = useParams();
     const navigate = useNavigate();
     const {
+        request,
         data: word,
         errorStatus
     } = useFetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + search);
 
     useEffect(() => {
-        console.log(word);
+        request();
     });
 
     if (errorStatus === 404) {

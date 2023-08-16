@@ -1,6 +1,6 @@
-# 49 lesson Notes
+# 53 lesson Notes
 
-At this lesson, we are going to create our Hook, a Hook that post data, in that case to add new customers
-into our customer page.
+At this lesson, we are going to use our custom Hook to use it into a button that post the data into our
+backend using this custom Hook that we create in previous episodes of the React Course.
 
-At this lesson we are going to edit the files called `Customers.js`, `UseFetch.js`, `Definition.js`.
+At this lesson we are going to edit the files called `Customers.js`, `useFetch.js`
