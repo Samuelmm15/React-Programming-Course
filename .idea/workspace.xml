@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30b23cac-af62-4e60-911d-2e7fa53107e9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/55-Lesson-TypeScript-Components/55-lesson-app-typescript/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/55-Lesson-TypeScript-Components/55-lesson-app-typescript/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/55-Lesson-TypeScript-Components/55-lesson-app-typescript/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/55-Lesson-TypeScript-Components/55-lesson-app-typescript/src/App.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="30b23cac-af62-4e60-911d-2e7fa53107e9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +29,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "55-Lesson-TypeScript-Components",
+    "git-widget-placeholder": "56-Lesson-Generate-Drop-Down-List",
     "last_opened_file_path": "/Users/smartin/Documents/React-Course",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,6 +49,11 @@
       </map>
     </option>
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/55-Lesson-TypeScript-Components/55-lesson-app-typescript/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -70,7 +71,7 @@
       <workItem from="1692009117072" duration="3000" />
       <workItem from="1692090958435" duration="5304000" />
       <workItem from="1692177419548" duration="7080000" />
-      <workItem from="1692184733025" duration="1354000" />
+      <workItem from="1692184733025" duration="1621000" />
     </task>
     <servers />
   </component>
