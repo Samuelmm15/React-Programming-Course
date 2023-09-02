@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30b23cac-af62-4e60-911d-2e7fa53107e9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/57-Lesson-Using-ChartJS/57-lesson-app-typescript/src/App.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="30b23cac-af62-4e60-911d-2e7fa53107e9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +29,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "57-Lesson-Using-ChartJS",
+    "git-widget-placeholder": "58-Lesson-Dynamic-Chart-with-Multiple-Drop-Downs",
     "last_opened_file_path": "/Users/smartin/Documents/React-Course",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,7 +73,7 @@
       <workItem from="1692177419548" duration="7080000" />
       <workItem from="1692184733025" duration="1621000" />
       <workItem from="1692271791906" duration="1659000" />
-      <workItem from="1692725565875" duration="3948000" />
+      <workItem from="1692725565875" duration="4159000" />
     </task>
     <servers />
   </component>
